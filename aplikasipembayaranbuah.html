@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aplikasi pembayaran buah</title>
+</head>
+<body>
+    <form>
+        Total Buah <input type="number" id="totalbuah"><br>
+        <input type="checkbox" name="menu_1" id="menu_1" value="original">Buah Apel
+        <input type="number" name="jml_apel" id="jml_apel"><br>
+        <input type="checkbox" name="menu_2" id="menu_2" value="tulang">Buah Jeruk 
+        <input type="number" name="jml_jeruk" id="jml_jeruk"><br>
+        <input type="checkbox" name="menu_3" id="menu_3" value="spesial">Buah Anggur
+        <input type="number" name="jml_anggur" id="jml_anggur"><br>
+        <button onclick="hitungtotal()">Hitung Total</button>
+    </form>
+    <h2>Hasil:</h2>
+    <p id="totalbelanjaan">Total Belanjaan</p>
+    <p id="diskon">Diskon</p>
+    <p id="hargasetelahdiskon">Harga Setelah Diskon</p>
+    <script>
+        function hitung() {
+            let menu_1 = document.getElementById('menu_1').value
+            let menu_2 = document.getElementById('menu_2').value
+            let menu_3 = document.getElementById('menu_3').value
+            let jml_apel = document.getElementById('jml_apel').value
+            let jml_jeruk = document.getElementById('jml_jeruk').value
+            let jml_anggur = document.getElementById('jml_anggur').value
+
+            if(menu_1) {
+                th_1 = 10000 * jml_apel
+            }
+            if (menu_2) {
+                th_2 = 12000 * jml_jeruk
+            }
+            if (menu_3) {
+                th_3 = 25000 * jml_anggur
+            }
+            total_harga = th_1 + th_2 + th_3
+        }
+    </script>
+</body>
+</html>

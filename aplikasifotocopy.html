@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aplikasi fotocopy</title>
+</head>
+<body>
+    <h1>Aplikasi Pembayaran Fotocopy</h1>
+    <form onsubmit="return false">
+    <label>Pilih anggota:</label>
+    <input type="radio" name="anggota" value="pelanggan" checked> Pelanggan
+  <input type="radio" name="anggota" value="bukan"> Bukan Pelanggan<br>
+  <label> Jumlah Fotocopy: </label>
+  <input type="number" id="JumlahFotocopy"><br>
+    <button onclick="hitung()">Hitung Pembayaran</button>
+    </form>
+    <p id="status"></p>
+    <p id="jumlah"></p>
+    <p id="hasil"></p>
+    <script>
+        function hitung() {
+            let status = document.getElementById('status').value
+            let JLF = document.getElementById('jumlah').value
+            let hp = 75
+            if (status =="pelanggan") {
+               hp=75
+            }
+            else {
+                if (JLF < 100) {
+                    HPP = 100
+                } else {
+                    HPP = 85
+                }
+            }
+            let TH = JLF * HPP 
+            document.getElementById("status").innerHTML = `status ${status}`
+            document.getElementById("jumlah").innerHTML = `jumlah ${jumlah}`
+            document.getElementById("hasil").innerHTML = `hasil : "JLF + HPP`
+        }
+    </script>
+</html>
