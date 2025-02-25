@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aplikasi pembayaran buah</title>
+</head>
+<body>
+    <form>
+        <input type="checkbox" name="menu_1" id="menu_1">Buah Apel
+        <input type="number" name="jml_apel" id="jml_apel"><br>
+        <input type="checkbox" name="menu_2" id="menu_2">Buah Jeruk 
+        <input type="number" name="jml_jeruk" id="jml_jeruk"><br>
+        <input type="checkbox" name="menu_3" id="menu_3">Buah Anggur
+        <input type="number" name="jml_anggur" id="jml_anggur"><br>
+        <button type="button" onclick="hitungtotal()">Hitung Total</button>
+    </form>
+    <h2>Hasil:</h2>
+    <p id="hasiltotalbelanjaan">Total Belanjaan:</p>
+    <p id="hasildiskon">Diskon:</p>
+    <p id="hasilhargasetelahdiskon">Harga Setelah Diskon:</p>
+    <script>
+        function hitungtotal() {
+            let th_1 = 0
+            let th_2 = 0
+            let th_3 = 0
+
+            if(document.getElementById('menu_1').checked) {
+                th_1 = 10000 * parseInt(document.getElementById('jml_apel').value)
+            }
+            if (document.getElementById('menu_2').checked) {
+                th_2 = 12000 * parseInt(document.getElementById('jml_jeruk').value)
+            }
+            if (document.getElementById('menu_3').checked) {
+                th_3 = 25000 * parseInt(document.getElementById('jml_anggur').value)
+            }
+
+            let total_harga = th_1 + th_2 + th_3
+            let diskon = 0
+
+            if (total_harga >= 50000 && total_harga <= 100000) {
+                diskon = total_harga * 0.05
+            }
+            if (total_harga > 100000) {
+                diskon = total_harga * 0.10
+            }
+            let hargasetelahdiskon = total_harga - diskon
+            document.getElementById('hasiltotalbelanjaan').innerHTML = `total belanjaan : ${total_harga}`
+            document.getElementById('hasildiskon').innerHTML = `diskon : ${diskon}`
+            document.getElementById('hasilhargasetelahdiskon').innerHTML = `harga setelah diskon : ${hargasetelahdiskon}`
+        }
+    </script>
+</body>
+</html>               
